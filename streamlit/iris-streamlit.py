@@ -45,7 +45,7 @@ with st.form(key="iris_classifier_form"):
         
         # sending the data to api service
         with st.spinner("Sending data to prediction server... please wait..."):
-            predict_url = "http://api:8000/predict"
+            predict_url = "http://localhost:8000/predict"
             res = requests.post(predict_url, json= form_data).json()
 
         # parse the prediction result

@@ -37,13 +37,13 @@ jobs:
 
       run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/deployment.pem
-          chmod 600 ~/.ssh/deployment.pem
+          echo "$SSH_KEY" > ~/.ssh/sekolahdata.pem
+          chmod 400 ~/.ssh/sekolahdata.pem
           cat >> ~/.ssh/config <<END
           Host deploy_ec2
             HostName $SSH_HOST
             User $SSH_USER
-            IdentityFile ~/.ssh/deployment.pem
+            IdentityFile ~/.ssh/sekolahdata.pem
             StrictHostKeyChecking no
           END
     - name: Deploy to EC2
@@ -53,7 +53,7 @@ jobs:
         STREAMLIT_SERVICE_IMAGE: iris-classifier-streamlit
       run: |
           ssh deploy_ec2 "mkdir temp"
-          ssh deploy_ec2 "git clone https://github.com/farrelarrizal/iris-classifier.git temp"
+          ssh deploy_ec2 "git clone https://github.com/fakhrirobi/iris-classifier.git temp"
           ssh deploy_ec2 "rsync -a temp/ $PATH_FILE"
           ssh deploy_ec2 "rm -rf temp/"
           ssh deploy_ec2 "cd $PATH_FILE"
