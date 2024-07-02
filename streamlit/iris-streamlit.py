@@ -41,6 +41,7 @@ with st.form(key="iris_classifier_form"):
             "sepal_width": sepal_width,
             "petal_length": petal_length,
             "petal_width": petal_width
+            
         }
         
         # sending the data to api service
