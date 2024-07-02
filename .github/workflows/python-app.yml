@@ -50,10 +50,8 @@ jobs:
       env:
         PATH_FILE: iris-classifier
         API_SERVICE_IMAGE: iris-classifier-api
-        
         STREAMLIT_SERVICE_IMAGE: iris-classifier-streamlit
       run: |
-          ssh deploy_ec2 "mkdir temp"
           ssh deploy_ec2 "git clone https://github.com/fakhrirobi/iris-classifier.git temp"
           ssh deploy_ec2 "rsync -a temp/ $PATH_FILE"
           ssh deploy_ec2 "rm -rf temp/"
