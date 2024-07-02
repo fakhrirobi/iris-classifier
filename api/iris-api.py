@@ -51,7 +51,7 @@ async def predict(data: Request):
     petal_length = data['petal_length']
     petal_width = data['petal_width']
 
-    _,model = load_model()
+    messages,model = load_model()
     label = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 
     try:
