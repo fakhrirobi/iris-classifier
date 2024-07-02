@@ -50,6 +50,7 @@ jobs:
       env:
         PATH_FILE: iris-classifier
         API_SERVICE_IMAGE: iris-classifier-api
+        
         STREAMLIT_SERVICE_IMAGE: iris-classifier-streamlit
       run: |
           ssh deploy_ec2 "mkdir temp"
