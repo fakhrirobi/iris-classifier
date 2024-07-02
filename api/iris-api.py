@@ -38,7 +38,7 @@ async def check():
         messages = 'Model is not ready to use' + model['messages']
     else:
         messages = 'Model is ready to use'
-    return messages
+    return messages,model
 
 @app.post("/predict")
 async def predict(data: Request):
@@ -51,7 +51,7 @@ async def predict(data: Request):
     petal_length = data['petal_length']
     petal_width = data['petal_width']
 
-    model = load_model()
+    _,model = load_model()
     label = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 
     try:

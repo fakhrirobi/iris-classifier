@@ -1,9 +1,9 @@
 import requests
 
-url = "http://127.0.0.1:8000"
-print(requests.get(url).json())
+# url = "http://127.0.0.1:8000"
+# print(requests.get(url).json())
 
-predict_url = url + "/predict"
+predict_url =  "http://108.136.169.48:8000/predict"
 data = {
     "sepal_length": 5.1,
     "sepal_width": 3.1,
